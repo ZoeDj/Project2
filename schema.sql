@@ -6,7 +6,7 @@ CREATE TABLE meetups
 (
 	id int NOT NULL AUTO_INCREMENT,
 	meetup_topic varchar(255) NOT NULL,
-	place varchar(255) NOT NULL,
+	place_name varchar(255) NOT NULL,
     meetup_time TIME (0),
     member1 varchar(255),
 	member2 varchar(255),
@@ -19,7 +19,7 @@ CREATE TABLE meetups
 	member9 varchar(255),
     member10 varchar(255),
 	PRIMARY KEY (id),
-    FOREIGN KEY (place) REFERENCES places(place)
+    FOREIGN KEY (place_name) REFERENCES places(place_name)
 );
 
 CREATE TABLE places
@@ -30,18 +30,18 @@ CREATE TABLE places
     wifi boolean,
     pet_friendly boolean,
     large_groups boolean,
-	PRIMARY KEY (id)
+	PRIMARY KEY (place_name)
 );
 
 CREATE TABLE reviews
 (
 	id int NOT NULL AUTO_INCREMENT,
 	author varchar(255) NOT NULL,
-	place varchar(255) NOT NULL,
+	place_name varchar(255) NOT NULL,
     content varchar (255),
     rating int, 
 	PRIMARY KEY (id),
-	FOREIGN KEY (place) REFERENCES places(place),
+	FOREIGN KEY (place_name) REFERENCES places(place_name),
     FOREIGN KEY (author) references users(user_name)
 );
 
@@ -49,10 +49,6 @@ CREATE TABLE users
 (
 	id int NOT NULL AUTO_INCREMENT,
 	user_name varchar(255) NOT NULL,
-	place varchar(255) NOT NULL,
-    content varchar (255),
-    rating int, 
-	PRIMARY KEY (id),
+	PRIMARY KEY (user_name),
 	FOREIGN KEY (place) REFERENCES places(place),
-    FOREIGN KEY (author) references users(user)
 );
