@@ -50,5 +50,5 @@ CREATE TABLE users
 	id int NOT NULL AUTO_INCREMENT,
 	user_name varchar(255) NOT NULL,
 	PRIMARY KEY (user_name),
-	FOREIGN KEY (place) REFERENCES places(place),
+	
 );
