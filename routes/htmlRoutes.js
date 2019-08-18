@@ -1,27 +1,43 @@
 var db = require("../models");
+var path = require("path");
 
-module.exports = function(app) {
-  // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
+
+module.exports = function (app) {
+  // Load index page:  index route loads study_mob_landing_page.html
+  app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/study_mob_landing_page.html"));
+  });
+
+  // Load event detail page and pass in an event by id
+  app.get("/events/:id", function (req, res) {
+    db.Event.findOne({ where: { id: req.params.id } }).then(function (dbEvent) {
+      res.render("event", {
+        event: dbEvent
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
+  // places route loads places.html
+  app.get("/places", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/places.html"));
   });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
+ // Load places detail page and pass in an event by id
+ app.get("/places/:id", function (req, res) {
+  db.Event.findOne({ where: { id: req.params.id } }).then(function (dbPlace) {
+    res.render("place", {
+      place: dbPlace
+    });
+  });
+});
+
+ // places route loads places.html
+ app.get("/reviews", function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/reviews.html"));
+});
+
+  // Render landing page for any unmatched routes
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/study_mob_landing_page.html"));
   });
 };
