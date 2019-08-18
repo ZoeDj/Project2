@@ -2,12 +2,12 @@ DROP DATABASE IF EXISTS study_mob;
 CREATE DATABASE study_mob;
 USE study_mob;
 
-CREATE TABLE meetups
+CREATE TABLE events
 (
 	id int NOT NULL AUTO_INCREMENT,
-	meetup_topic varchar(255) NOT NULL,
+	event_topic varchar(255) NOT NULL,
 	place_name varchar(255) NOT NULL,
-    meetup_time TIME (0),
+    event_time TIME (0),
     member1 varchar(255),
 	member2 varchar(255),
 	member3 varchar(255),
