@@ -13,12 +13,12 @@ module.exports = function(sequelize, DataTypes) {
   }
   );
   
-  Place.associate = function(models) {
-    // assoiates a place with its reviews
-    Place.hasMany(models.Review, {
-      onDelete: "cascade"
-    });
-  };
+  // Place.associate = function(models) {
+  //   // assoiates a place with its reviews
+  //   Place.hasMany(models.Review, {
+  //     onDelete: "cascade"
+  //   });
+  // };
 
   return Places;
 };
