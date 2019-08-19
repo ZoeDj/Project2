@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "blogger",
+    "database": "study_mob",
     "host": "127.0.0.1",
     "port": 8889,
     "dialect": "mysql"
@@ -10,7 +10,7 @@
   "test": {
     "username": "root",
     "password": "root",
-    "database": "database_test",
+    "database": "study_mob",
     "host": "127.0.0.1",
     "port": 8889,
     "dialect": "mysql"

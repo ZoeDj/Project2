@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Places = sequelize.define("Places", {
+  var places = sequelize.define("places", {
     place_name: DataTypes.STRING,
     image_url: DataTypes.STRING,
     wifi: DataTypes.BOOLEAN,
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
   //   });
   // };
 
-  return Places;
+  return places;
 };
 
 
