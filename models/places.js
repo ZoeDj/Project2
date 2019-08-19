@@ -4,12 +4,15 @@ module.exports = function(sequelize, DataTypes) {
     image_url: DataTypes.STRING,
     wifi: DataTypes.BOOLEAN,
     pet_friendly: DataTypes.BOOLEAN,
-    bigtables: DataTypes.BOOLEAN,
-    neighborhood: DataTypes.STRING,
-    address: DataTypes.STRING,
-    waiters: DataTypes.BOOLEAN,
-    kidfriendly: DataTypes.BOOLEAN,
-    website: DataTypes.STRING
+    // bigtables: DataTypes.BOOLEAN,
+    // neighborhood: DataTypes.STRING,
+    // address: DataTypes.STRING,
+    // waiters: DataTypes.BOOLEAN,
+    // kidfriendly: DataTypes.BOOLEAN,
+    // website: DataTypes.STRING
+    //default for createdAt and 
+    // createdAt: TIMESTAMP,
+    // updatedAt: TIMESTAMP
   }
   );
   

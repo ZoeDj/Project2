@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.get("/api/places", function(req, res) {
     // "get" findAll queries will include an array of all associated Reviews
     db.places.findAll({
-      include: [db.Review]
+      // include: [db.Review]
     }).then(function(dbPlace) {
       res.json(dbPlace);
     });
@@ -16,7 +16,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      include: [db.Review]
+      // include: [db.Review]
     }).then(function(dbPlace) {
       res.json(dbPlace);
     });

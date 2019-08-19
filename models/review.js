@@ -6,13 +6,13 @@ module.exports = function(sequelize, DataTypes) {
     rating: DataTypes.INTEGER,
   });
 
-  Review.associate = function(models) {
-    // associates the review with the place to which is pertains
-    Review.belongsTo(models.Place, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Review.associate = function(models) {
+  //   // associates the review with the place to which is pertains
+  //   Review.belongsTo(models.Place, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
   return Review;
 };
