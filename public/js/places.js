@@ -1,146 +1,110 @@
 $(document).ready(function() {
-
-  
-  
-  
-   /// Placeholder for Places 
-  
-    // Event Handler Functions
-  function getPlaces(){
-    console.log('CLIENT-SIDE SEND GET REQUEST')
-    $.get("/api/places", function(data){
-      for (var i =0; i<data.length; i++){
-        var row = $("<div>");
-        $row.addClass("place");
-        $row.append (
-          "<p>" + data[i].neighborhood + "</p>",
-          "<p>" + data[i].address + "</p>",
-          "<img href=' " + data[i].photo + " ' alt='cool place to study'> ",
-          "<p>" + data[i].wifi + "</p>",
-          "<p>" + data[i].waiters + "</p>",
-          "<p>" + data[i].kidfriendly + "</p>",
-          "<p>" + data[i].noiselevel + "</p>",
-          "<p>" + data[i].website + "</p>",
-        );
-    }
-    console.log(place)
     
-    });
+var displayPlaces = $("#display-places");
+var placeHoodSelect = $("#neiborhood");
+
+// Adding event listeners to the form to create a place object
+$(document).on("submit", "#place-form", handlePlaceFormSubmit);
+
+// Getting the initial list of places
+getPlaces();
+
+
+// A function to handle what happens when the form is submitted to create a new place
+function handlePlaceFormSubmit(event) {
+  event.preventDefault();
+  // Don't do anything if the name fields hasn't been filled out
+  if (!nameInput.val().trim().trim() 
+  
+//   add other feilds
+  
+  ) {
+    return;
   }
-  
-    // Run Functions
-    getPlaces();
-  
+  // Calling the newPlace function and passing in the value of the inputs
+  newPlace({
+    name: nameInput.val().trim(),
+    address: addressInput.val().trim(),
+    wifi: wifiInput.val(),
+    waiters: waitersInput.val(),
+    kidfriendly: kidfriendlyInput.val(),
+    noiselevel: noiselevelInput.val(),
+    dogfriendly: dogfriendlyInput.val(),
+    website: websiteInput.val().trim()
   });
+}
+
+// A function for creating a place. Calls getPlaces upon completion
+function newPlace(placeData) {
+  $.post("/api/places", placeData)
+    .then(getPlaces);
+}
+
+// Function for creating a new list row for places
+function createPlaceRow(placeData) {
+    var row = $("<div>");
+  row.data("place", placeData);
+  row.append("<p>" + placeData.name + "</p>");
+  row.append("<p>" + placeData.address + "</p>");
+  row.append("<p>" + placeData.wifi + "</p>");
+  row.append("<p>" + placeData.waiters + "</p>");
+  row.append("<p>" + placeData.kidfriendly + "</p>");
+  row.append("<p>" + placeData.dogfriendly + "</p>");
+  row.append("<p>" + placeData.noiselevel + "</p>");
+  row.append("<p>" + placeData.website + "</p>");
+  return row;
+}
 
 
-  // neighborhood: 
-  // address: “5126 Park Rd #1d, Charlotte, NC 28209”
-  // photo: “https://images.app.goo.gl/64aLsAWdhD3WWawy6”
-  // wifi: true
-  // waiters: true
-  // dogfriendly:
-  // kidfriendly: true
-  // website: “http://mugsofcharlotte.com/“
-  
+// Function for retrieving places and getting them ready to be rendered to the page
+function getPlaces() {
+  $.get("/api/places", function(data) {
+    var rowsToAdd = [];
+    for (var i = 0; i < data.length; i++) {
+      rowsToAdd.push(createPlaceRow(data[i]));
+    }
+    renderPlaceList(rowsToAdd);
+    nameInput.val("");
+    addressInput.val(""),
+    wifiInput.val(""),
+    waitersInput.val(""),
+    kidfriendlyInput.val(""),
+    noiselevelInput.val(""),
+    dogfriendlyInput.val(""),
+    websiteInput.val("")
 
+  });
+}
 
-// // Get references to page elements
-// var $submitBtn = $(".submit-review");
-
-
-// // The API object contains methods for each kind of request we'll make
-// var API = {
-//   saveReview: function(review) {
-//     return $.ajax({
-//       review: {
-//         "Content-Type": "application/json"
-//       },
-//       type: "POST",
-//       url: "api/reviews",
-//       data: JSON.stringify(review)
-//     });
-//   },
-//   getExamples: function() {
-//     return $.ajax({
-//       url: "api/examples",
-//       type: "GET"
-//     });
-//   },
-//   deleteExample: function(id) {
-//     return $.ajax({
-//       url: "api/examples/" + id,
-//       type: "DELETE"
-//     });
+// // A function for rendering the list of places to the page
+// function renderPlaceList(rows) {
+//   placeList.children().not(":last").remove();
+//   displayPlaces.children(".alert").remove();
+//   if (rows.length) {
+//     console.log(rows);
+//     placeList.prepend(rows);
 //   }
-// };
-
-
-// // refreshExamples gets new examples from the db and repopulates the list
-// var refreshExamples = function() {
-//   API.getExamples().then(function(data) {
-//     var $examples = data.map(function(example) {
-//       var $a = $("<a>")
-//         .text(example.text)
-//         .attr("href", "/example/" + example.id);
-
-//       var $li = $("<li>")
-//         .attr({
-//           class: "list-group-item",
-//           "data-id": example.id
-//         })
-//         .append($a);
-
-//       var $button = $("<button>")
-//         .addClass("btn btn-danger float-right delete")
-//         .text("ｘ");
-
-//       $li.append($button);
-
-//       return $li;
-//     });
-
-//     $exampleList.empty();
-//     $exampleList.append($examples);
-//   });
-// };
-
-// // handleFormSubmit is called whenever we submit a new example
-// // Save the new example to the db and refresh the list
-// var handleFormSubmit = function(event) {
-//   event.preventDefault();
-
-//   var example = {
-//     text: $exampleText.val().trim(),
-//     description: $exampleDescription.val().trim()
-//   };
-
-//   if (!(example.text && example.description)) {
-//     alert("You must enter an example text and description!");
-//     return;
+//   else {
+//     renderEmpty();
 //   }
+// }
 
-//   API.saveExample(example).then(function() {
-//     refreshExamples();
-//   });
+// // Function for handling what to render when there are no authors
+// function renderEmpty() {
+//   var alertDiv = $("<div>");
+//   alertDiv.addClass("alert alert-danger");
+//   alertDiv.text("You must create an Author before you can create a Post.");
+//   authorContainer.append(alertDiv);
+// }
 
-//   $exampleText.val("");
-//   $exampleDescription.val("");
-// };
-
-// // handleDeleteBtnClick is called when an example's delete button is clicked
-// // Remove the example from the db and refresh the list
-// var handleDeleteBtnClick = function() {
-//   var idToDelete = $(this)
-//     .parent()
-//     .attr("data-id");
-
-//   API.deleteExample(idToDelete).then(function() {
-//     refreshExamples();
-//   });
-// };
-
-// // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-
-// $exampleList.on("click", ".delete", handleDeleteBtnClick);
+// // Function for handling what happens when the delete button is pressed
+// function handleDeleteButtonPress() {
+//   var listItemData = $(this).parent("td").parent("tr").data("author");
+//   var id = listItemData.id;
+//   $.ajax({
+//     method: "DELETE",
+//     url: "/api/authors/" + id
+//   })
+//     .then(getAuthors);
+// }
+ });
