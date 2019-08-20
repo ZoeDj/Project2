@@ -4,24 +4,21 @@ module.exports = function(sequelize, DataTypes) {
     image_url: DataTypes.STRING,
     wifi: DataTypes.BOOLEAN,
     pet_friendly: DataTypes.BOOLEAN,
-    // bigtables: DataTypes.BOOLEAN,
-    // neighborhood: DataTypes.STRING,
-    // address: DataTypes.STRING,
-    // waiters: DataTypes.BOOLEAN,
-    // kidfriendly: DataTypes.BOOLEAN,
-    // website: DataTypes.STRING
-    //default for createdAt and 
-    // createdAt: TIMESTAMP,
-    // updatedAt: TIMESTAMP
+    bigtables: DataTypes.BOOLEAN,
+    neighborhood: DataTypes.STRING,
+    address: DataTypes.STRING,
+    waiters: DataTypes.BOOLEAN,
+    kidfriendly: DataTypes.BOOLEAN,
+    website: DataTypes.STRING,
   }
   );
   
-  // Place.associate = function(models) {
-  //   // assoiates a place with its reviews
-  //   Place.hasMany(models.Review, {
-  //     onDelete: "cascade"
-  //   });
-  // };
+  places.associate = function(models) {
+    // assoiates a place with its reviews
+    places.hasMany(models.Review, {
+      onDelete: "cascade"
+    });
+  };
 
   return places;
 };
