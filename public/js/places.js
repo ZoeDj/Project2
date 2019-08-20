@@ -109,5 +109,3 @@ $(document).ready(function () {
   //     .then(getAuthors);
   // }
 });
-
-//added some stuff right here
