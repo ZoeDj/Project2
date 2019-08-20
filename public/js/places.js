@@ -3,7 +3,7 @@ $(document).ready(function () {
   var placeHoodSelect = $("#neiborhood");
 
   // Adding event listeners to the form to create a place object
-  $(document).on("submit", "#place-form", handlePlaceFormSubmit);
+  $(document).on(".submit", "#place-form", handlePlaceFormSubmit);
 
   // Getting the initial list of places
   getPlaces();
@@ -12,12 +12,14 @@ $(document).ready(function () {
   // A function to handle what happens when the form is submitted to create a new place
   function handlePlaceFormSubmit(event) {
     event.preventDefault();
+    console.log("working");
     // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim().trim()
+    if (!nameInput.val().trim()
 
       //   add other feilds
 
     ) {
+      
       return;
     }
     // Calling the newPlace function and passing in the value of the inputs
