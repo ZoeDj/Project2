@@ -1,40 +1,42 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get Route to Select * from places table 
-  console.log('Running: SERVER SIDE GET REQUEST ROUTE to select * from places table')
   app.get("/api/places", function(req, res) {
-    db.Places.findAll({}).then(function(dbPlaces) {
-      res.json(dbPlaces);
+    // "get" findAll queries will include an array of all associated Reviews
+    db.places.findAll({
+      // include: [db.Review]
+    }).then(function(dbPlace) {
+      res.json(dbPlace);
     });
   });
 
-  // Get Route to Select 1 places by id and join review data for the place
-  // app.get("/api/places/:id", function(req, res) {
-  //   console.log('SERVER SIDE GET REQUEST routed to Select 1 by id from places table and outer join reviews for that place')
-  //   db.Places.findOne({
+  app.get("/api/places/:id", function(req, res) {
+    // "get" findOne queries will include an array of all associated Reviews
+    db.places.findOne({
+      where: {
+        id: req.params.id
+      },
+      // include: [db.Review]
+    }).then(function(dbPlace) {
+      res.json(dbPlace);
+    });
+  });
+
+  app.post("/api/places", function(req, res) {
+    //creates a new Place
+    db.places.create(req.body).then(function(dbPlace) {
+      res.json(dbPlace);
+    });
+  });
+
+  // app.delete("/api/places/:id", function(req, res) {
+  //   //deletes a place - we may not need this functionality
+  //   db.places.destroy({
   //     where: {
   //       id: req.params.id
-  //     },
-  //     include: [db.Review]
-  //   }).then(function(dbPlaces) {
-  //     res.json(dbPlaces);
+  //     }
+  //   }).then(function(dbPlace) {
+  //     res.json(dbPlace);
   //   });
   // });
-
-
-  // Post Route to Create a new Places
-  console.log('Running: SERVER SIDE POST REQUEST ROUTE to create a new place in table places')
-  app.post("/api/places", function(req, res) {
-    db.Places.create(req.body).then(function(dbPlaces) {
-      res.json(dbPlaces);
-    });
-  });
-
-  // Delete Route to delete an places by id
-  app.delete("/api/places/:id", function(req, res) {
-    db.Places.destroy({ where: { id: req.params.id } }).then(function(dbPlaces) {
-      res.json(dbPlaces);
-    });
-  });
 };
