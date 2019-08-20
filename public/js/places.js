@@ -23,13 +23,14 @@ function handlePlaceFormSubmit(event) {
   }
   // Calling the newPlace function and passing in the value of the inputs
   newPlace({
-    name: nameInput.val().trim(),
+    place_name: nameInput.val().trim(),
     address: addressInput.val().trim(),
+    neighborhood: neighborhoodInput.val().trim(),
     wifi: wifiInput.val(),
     waiters: waitersInput.val(),
     kidfriendly: kidfriendlyInput.val(),
-    noiselevel: noiselevelInput.val(),
-    dogfriendly: dogfriendlyInput.val(),
+    bigtables: bigtablesInput.val(),
+    dogfriendly: petfriendlyInput.val(),
     website: websiteInput.val().trim()
   });
 }
@@ -44,13 +45,14 @@ function newPlace(placeData) {
 function createPlaceRow(placeData) {
     var row = $("<div>");
   row.data("place", placeData);
-  row.append("<p>" + placeData.name + "</p>");
+  row.append("<p>" + placeData.place_name + "</p>");
   row.append("<p>" + placeData.address + "</p>");
+  row.append("<img src= '" + placeData.image_url + "'>");
   row.append("<p>" + placeData.wifi + "</p>");
   row.append("<p>" + placeData.waiters + "</p>");
   row.append("<p>" + placeData.kidfriendly + "</p>");
-  row.append("<p>" + placeData.dogfriendly + "</p>");
-  row.append("<p>" + placeData.noiselevel + "</p>");
+  row.append("<p>" + placeData.pet_friendly + "</p>");
+  row.append("<p>" + placeData.bigtables + "</p>");
   row.append("<p>" + placeData.website + "</p>");
   return row;
 }
@@ -69,7 +71,7 @@ function getPlaces() {
     wifiInput.val(""),
     waitersInput.val(""),
     kidfriendlyInput.val(""),
-    noiselevelInput.val(""),
+    bigtablesInput.val(""),
     dogfriendlyInput.val(""),
     websiteInput.val("")
 
