@@ -61,20 +61,20 @@ $(document).ready(function () {
 
   // Function for retrieving places and getting them ready to be rendered to the page
   function getPlaces() {
-    $.get("/api/places", function (data) {
+    $.get("/api/places", function(data) {
       var rowsToAdd = [];
       for (var i = 0; i < data.length; i++) {
         rowsToAdd.push(createPlaceRow(data[i]));
       }
       renderPlaceList(rowsToAdd);
       nameInput.val("");
-      addressInput.val(""),
-      wifiInput.val(""),
-      waitersInput.val(""),
-      kidfriendlyInput.val(""),
-      bigtablesInput.val(""),
-      dogfriendlyInput.val(""),
-      websiteInput.val("")
+      addressInput.val("");
+      wifiInput.val("");
+      waitersInput.val("");
+      kidfriendlyInput.val("");
+      bigtablesInput.val("");
+      dogfriendlyInput.val("");
+      websiteInput.val("");
     });
   }
 

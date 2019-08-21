@@ -5,7 +5,7 @@ var path = require("path");
 module.exports = function (app) {
   // Load index page:  index route loads study_mob_landing_page.html
   app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/study_mob_landing_page.html"));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
   // Load event detail page and pass in an event by id
@@ -38,6 +38,6 @@ module.exports = function (app) {
 
   // Render landing page for any unmatched routes
   app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/study_mob_landing_page.html"));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 };
