@@ -3,7 +3,7 @@ $(document).ready(function () {
   var placeHoodSelect = $("#neiborhood");
 
   // Adding event listeners to the form to create a place object
-  $(document).on("submit", "#place-form", handlePlaceFormSubmit);
+  $(document).on(".submit", "#place-form", handlePlaceFormSubmit);
 
   // Getting the initial list of places
   getPlaces();
@@ -12,12 +12,14 @@ $(document).ready(function () {
   // A function to handle what happens when the form is submitted to create a new place
   function handlePlaceFormSubmit(event) {
     event.preventDefault();
-    // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim().trim()
+    
+  // Don't do anything if the name fields hasn't been filled out
+    if (!nameInput.val().trim()
 
-      //   add other feilds
+    //   add other feilds
 
     ) {
+      
       return;
     }
     // Calling the newPlace function and passing in the value of the inputs
@@ -59,21 +61,20 @@ $(document).ready(function () {
 
   // Function for retrieving places and getting them ready to be rendered to the page
   function getPlaces() {
-    $.get("/api/places", function (data) {
+    $.get("/api/places", function(data) {
       var rowsToAdd = [];
       for (var i = 0; i < data.length; i++) {
         rowsToAdd.push(createPlaceRow(data[i]));
       }
       renderPlaceList(rowsToAdd);
       nameInput.val("");
-      addressInput.val(""),
-        wifiInput.val(""),
-        waitersInput.val(""),
-        kidfriendlyInput.val(""),
-        bigtablesInput.val(""),
-        dogfriendlyInput.val(""),
-        websiteInput.val("")
-
+      addressInput.val("");
+      wifiInput.val("");
+      waitersInput.val("");
+      kidfriendlyInput.val("");
+      bigtablesInput.val("");
+      dogfriendlyInput.val("");
+      websiteInput.val("");
     });
   }
 
