@@ -12,11 +12,11 @@ $(document).ready(function () {
   // A function to handle what happens when the form is submitted to create a new place
   function handlePlaceFormSubmit(event) {
     event.preventDefault();
-    console.log("working");
-    // Don't do anything if the name fields hasn't been filled out
+    
+  // Don't do anything if the name fields hasn't been filled out
     if (!nameInput.val().trim()
 
-      //   add other feilds
+    //   add other feilds
 
     ) {
       
@@ -69,13 +69,12 @@ $(document).ready(function () {
       renderPlaceList(rowsToAdd);
       nameInput.val("");
       addressInput.val(""),
-        wifiInput.val(""),
-        waitersInput.val(""),
-        kidfriendlyInput.val(""),
-        bigtablesInput.val(""),
-        dogfriendlyInput.val(""),
-        websiteInput.val("")
-
+      wifiInput.val(""),
+      waitersInput.val(""),
+      kidfriendlyInput.val(""),
+      bigtablesInput.val(""),
+      dogfriendlyInput.val(""),
+      websiteInput.val("")
     });
   }
 
