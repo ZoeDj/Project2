@@ -54,7 +54,18 @@ h6 {
   color: black;
   
 }
+
+#zipinput {
+  width: 40%;
+  margin-left: 0%
+}
 @media (max-width:992px){
   #nav-bar{background-color:transparent!important}
   #nav-bar:hover{background-color:#424f95 !important}
 }
+@media (max-width:767px){
+  #zipinput {
+    width: 100%;
+  }
+}
+
