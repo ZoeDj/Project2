@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     waiters: DataTypes.BOOLEAN,
     kidfriendly: DataTypes.BOOLEAN,
     website: DataTypes.STRING
+
   }
   );
   
