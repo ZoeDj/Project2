@@ -17,9 +17,10 @@
 --     kidfriendly boolean,
 --     website varchar (255),
 --     createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
--- 	   updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+-- 	updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 -- 	PRIMARY KEY (id)
 -- );
+
 
 INSERT INTO places (place_name, image_url, wifi, pet_friendly, bigtables, neighborhood, address_name, waiters, kidfriendly, website, createdAt, updatedAt) VALUES ('Brix Uptown', 'https://brixxpizza.com/', true, false, true, 'center', '28202', true, true, 'https://brixxpizza.com/', NOW(), NOW());
 INSERT INTO places (place_name, image_url, wifi, pet_friendly, bigtables, neighborhood, address_name, waiters, kidfriendly, website, createdAt, updatedAt) VALUES ('Cotton Room at Belfast', 'https://www.cottonroomclt.com/', true, false, true, 'center', '28202', true, true, 'https://www.cottonroomclt.com/', NOW(), NOW());
