@@ -6,10 +6,11 @@ module.exports = function(sequelize, DataTypes) {
     pet_friendly: DataTypes.BOOLEAN,
     bigtables: DataTypes.BOOLEAN,
     neighborhood: DataTypes.STRING,
-    address: DataTypes.STRING,
+    address_name: DataTypes.STRING,
     waiters: DataTypes.BOOLEAN,
     kidfriendly: DataTypes.BOOLEAN,
-    website: DataTypes.STRING,
+    website: DataTypes.STRING
+
   }
   );
   
@@ -22,5 +23,3 @@ module.exports = function(sequelize, DataTypes) {
 
   return places;
 };
-
-
