@@ -2,100 +2,140 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Study Mob Places</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <!-- Bootstrap core CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="scss/styles/styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/demo.css">
+    <title>Study Mob</title>
 </head>
 
+
 <body>
-    <!-- Jumbotron -->
-<div class="card card-image" style="background-image: url('img/skyline.jpg'); background-position: top">
-  <div class="text-black text-center py-5 px-4">
-    <div class="py-5">
-
-      <!-- Content -->
-      <div><img src="img/studymob1.png"></div>
-      <br>
-      <br>
-      <br>
-      <!-- <h2 class="card-title h2 my-4 py-2">Jumbotron with image overlay</h2>
-      <p class="mb-4 pb-2 px-md-5 mx-md-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur obcaecati vero aliquid libero doloribus ad, unde tempora maiores, ullam, modi qui quidem minima debitis perferendis vitae cumque et quo impedit.</p> -->
-      <a href="places.html" class="btn peach-gradient">View all places</a>
-
-    </div>
-  </div>
-</div>
-<!-- Jumbotron -->
-    
-
-<!-- Modal/ Suggest Place -->
-<div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header text-center">
-      <h4 class="modal-title w-100 font-weight-bold">Suggest Study Place</h4>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body mx-3">
-      <div class="md-form mb-5" id="place-form">
-        <i class="fas fa-map-marker-alt prefix grey-text"></i>
-        <input type="text" id="form3" class="form-control validate" class="nameInput">
-        <label data-error="wrong" data-success="right" for="form3">Name of the Place</label>
-      </div>
-
-      <div class="md-form mb-5">
-        <input type="text" id="form4" class="form-control validate" class="addressInput">
-        <label data-error="wrong" data-success="right" for="form4">Address</label>
-      </div>
-
-    </div>
-    <div class="modal-footer d-flex justify-content-center">
-      <input type="submit" class="btn btn-indigo submit"></input>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="text-center">
-<a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">Suggest Study Place</a>
-</div>
-<!-- Modal/ Suggest Place -->
+    <!-- Main navigation -->
+    <header>
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+            <div class="container">
+                <div><img src="images/studymob-small.png">
+                    <a class="navbar-brand" href="#"></a></div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Places
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Events</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline">
+                        <div class="md-form my-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Full Page Intro -->
+        <div class="view"
+            style="background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            <!-- Mask & flexbox options-->
+            <div class="mask rgba-gradient align-items-center">
+                <!-- Content -->
+                <div class="container">
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-6 white-text text-center text-md-left mt-xl-5 mb-5 wow fadeInLeft"
+                            data-wow-delay="0.3s">
+                            <h1 id="study" class="h1-responsive mt-sm-5">Study & Chill</h1>
+                            <hr class="hr-light">
+                            <h6 class="mb-4">Find the best spots to study near you!</h6>
 
 
+                            <!-- Basic dropdown -->
+                            <select class="btn btn-green accent-4 dropdown-toggle mr-4" type="button" id="mySelect"
+                                aria-haspopup="true" aria-expanded="false" aria-placeholder="Select Location">
+                                <option value="none">
+                                    Select Location
+                                </option>
+                                <option>Northern Charlotte</option>
+                                <option>Eastern Charlotte</option>
+                                <option>Southern Charlotte</option>
+                                <option>Western Charlotte</option>
+                                <option>Central Charlotte</option>
+                            </select>
+                            <!-- Basic dropdown -->
 
-    <!-- Footer -->
-<footer class="page-footer font-small blue">
-    
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2019 Copyright:
-    <a href="https://github.com/erinruthmaness">Erin</a>, <a href="https://github.com/kattymay">Kat</a>, <a href="https://github.com/ZoeDj">Zoe</a> & <a href="https://github.com/Kalobar4">Brad</a></div>
-    </div>
-    <!-- Copyright -->
-  
-  </footer>
-  <!-- Footer -->
+                            <input class="form-control" id="zipinput" type="text" placeholder="Or Enter Your Zip Code"
+                                aria-label="Search">
 
-  <!-- SCRIPTS -->
-  <!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+                            <button id="search" class="btn btn-outline-white">Search</button>
+
+                        </div>
+
+                        <!--Grid column-->
+                        <div class="col-md-6 col-xl-5 mt-xl-5 wow fadeInRight" data-wow-delay="0.3s">
+                            <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" alt=""
+                                class="img-fluid">
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </div>
+                <!-- Content -->
+            </div>
+            <!-- Mask & flexbox options-->
+        </div>
+        <!-- Full Page Intro -->
+    </header>
+    <!-- Main navigation -->
+    <!--Main Layout-->
+    <main>
+        <div class="container">
+            <!--Grid row-->
+            <div class="row py-5">
+                <!--Grid column-->
+                <div class="col-md-12 text-center">
+                    <div id="display-places"></div>
+                    <h3>Study Spots Near You:</h3>
+                    <ul id="places-list" class="list-group">
+                    </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+    </main>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+    <script src="js/places.js"></script>
+
 </body>
 
 </html>
