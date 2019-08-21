@@ -1,18 +1,18 @@
 module.exports = function(sequelize, DataTypes) {
-  var Review = sequelize.define("Review", {
+  var reviews = sequelize.define("reviews", {
     user_name: DataTypes.STRING,
     place_name: DataTypes.STRING,
     content: DataTypes.TEXT,
     rating: DataTypes.INTEGER,
   });
 
-  Review.associate = function(models) {
+  reviews.associate = function(models) {
     // associates the review with the place to which is pertains
-    Review.belongsTo(models.places, {
+    reviews.belongsTo(models.places, {
       foreignKey: {
         allowNull: false
       }
     });
   };
-  return Review;
+  return reviews;
 };

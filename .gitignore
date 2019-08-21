@@ -2,3 +2,9 @@
 node_modules
 npm-debug.log
 .env
+package-lock.json
+seeds_reviews.sql
+seeds_places.sql
+seeds_events.sql
+seeds users.sql
+
