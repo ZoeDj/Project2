@@ -1,112 +1,103 @@
-$(document).ready(function () {
-  var displayPlaces = $("#display-places");
-  var placeHoodSelect = $("#neiborhood");
+/* eslint-disable prettier/prettier */
+function findNeighborhood(zipString) {
+    var east = ["28027", "28075", "28212", "28215", "28227"];
+    var south = [
+        "28105",
+        "28134",
+        "28209",
+        "28210",
+        "28211",
+        "28226",
+        "28270",
+        "28277"
+    ];
+    var west = ["28012", "28120", "28208", "28214", "28217", "28273", "28278"];
+    var north = ["28213", "28262", "28269", "28216", "28078"];
+    var center = ["28202", "28203", "28204", "28205", "28206", "28207"];
 
-  // Adding event listeners to the form to create a place object
-  $(document).on(".submit", "#place-form", handlePlaceFormSubmit);
-
-  // Getting the initial list of places
-  getPlaces();
-
-
-  // A function to handle what happens when the form is submitted to create a new place
-  function handlePlaceFormSubmit(event) {
-    event.preventDefault();
-    
-  // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim()
-
-    //   add other feilds
-
-    ) {
-      
-      return;
+    if (east.indexOf(zipString) !== -1) {
+        return "Eastern Charlotte";
     }
-    // Calling the newPlace function and passing in the value of the inputs
-    newPlace({
-      place_name: nameInput.val().trim(),
-      address: addressInput.val().trim(),
-      neighborhood: neighborhoodInput.val().trim(),
-      wifi: wifiInput.val(),
-      waiters: waitersInput.val(),
-      kidfriendly: kidfriendlyInput.val(),
-      bigtables: bigtablesInput.val(),
-      dogfriendly: petfriendlyInput.val(),
-      website: websiteInput.val().trim()
+
+    else if (west.indexOf(zipString) !== -1) {
+        return "Western Charlotte";
+    }
+
+    else if (north.indexOf(zipString) !== -1) {
+        return "Northern Charlotte";
+    }
+
+    else if (south.indexOf(zipString) !== -1) {
+        return "Southern Charlotte";
+    }
+
+    else if (center.indexOf(zipString) !== -1) {
+        return "Central Charlotte";
+    }
+
+    else {
+        return "Charlotte only, pal!";
+    }
+}
+
+function displayResults(obj) {
+    for (var i in obj) {
+        var newLine = $("<li>").addClass("list-group-item");
+        newLine.attr("data-id", obj[i].id);
+        var newLink = $("<a>").attr("href", obj[i].website);
+        newLink.text(obj[i].place_name);
+        newLink.appendTo(newLine);
+        var newButton = $("<button>").addClass("btn btn-danger float-right delete");
+        newLine.append(newButton);
+        $("#places-list").append(newLine);
+    }
+}
+
+$("#search").on("click", function () {
+    if ($("#zipinput").val() !== "") {
+        var zip = $("#zipinput").val().trim();
+        var hood = findNeighborhood(zip);
+        $("#mySelect").val(hood);
+        console.log("They live in " + hood);
+        //href to the next section of the page
+    }
+    else if ($("#mySelect").val() !== "none") {
+        var hood = $("#mySelect").val();
+        console.log("They live in " + hood);
+        //href to the next section of the page
+    }
+    else {
+        console.log("Make a selection!");
+    }
+
+    var hoodFind;
+
+    switch (hood) {
+    case "Northern Charlotte":
+        hoodFind = "north";
+        break;
+    case "Western Charlotte":
+        hoodFind = "west";
+        break;
+    case "Southern Charlotte":
+        hoodFind = "south";
+        break;
+    case "Eastern Charlotte":
+        hoodFind = "east";
+        break;
+    case "Central Charlotte":
+        hoodFind = "center";
+        break;
+    default:
+        console.log("Yikes!");
+    }
+
+    //ajax GET call that returns all neighborhoods with "hood" as a parameter
+    $.get("/api/places/?neighborhood=" + hoodFind, function (res) {
+        console.log("/api/places/?neighborhood=" + hoodFind);
+        console.log(res);
+        displayResults(res);
+        console.log("done");
     });
-  }
 
-  // A function for creating a place. Calls getPlaces upon completion
-  function newPlace(placeData) {
-    $.post("/api/places", placeData)
-      .then(getPlaces);
-  }
-
-  // Function for creating a new list row for places
-  function createPlaceRow(placeData) {
-    var row = $("<div>");
-    row.data("place", placeData);
-    row.append("<p>" + placeData.place_name + "</p>");
-    row.append("<p>" + placeData.address + "</p>");
-    row.append("<img src= '" + placeData.image_url + "'>");
-    row.append("<p>" + placeData.wifi + "</p>");
-    row.append("<p>" + placeData.waiters + "</p>");
-    row.append("<p>" + placeData.kidfriendly + "</p>");
-    row.append("<p>" + placeData.pet_friendly + "</p>");
-    row.append("<p>" + placeData.bigtables + "</p>");
-    row.append("<p>" + placeData.website + "</p>");
-    return row;
-  }
-
-
-  // Function for retrieving places and getting them ready to be rendered to the page
-  function getPlaces() {
-    $.get("/api/places", function(data) {
-      var rowsToAdd = [];
-      for (var i = 0; i < data.length; i++) {
-        rowsToAdd.push(createPlaceRow(data[i]));
-      }
-      renderPlaceList(rowsToAdd);
-      nameInput.val("");
-      addressInput.val("");
-      wifiInput.val("");
-      waitersInput.val("");
-      kidfriendlyInput.val("");
-      bigtablesInput.val("");
-      dogfriendlyInput.val("");
-      websiteInput.val("");
-    });
-  }
-
-  // // A function for rendering the list of places to the page
-  // function renderPlaceList(rows) {
-  //   placeList.children().not(":last").remove();
-  //   displayPlaces.children(".alert").remove();
-  //   if (rows.length) {
-  //     console.log(rows);
-  //     placeList.prepend(rows);
-  //   }
-  //   else {
-  //     renderEmpty();
-  //   }
-  // }
-
-  // // Function for handling what to render when there are no authors
-  // function renderEmpty() {
-  //   var alertDiv = $("<div>");
-  //   alertDiv.addClass("alert alert-danger");
-  //   alertDiv.text("You must create an Author before you can create a Post.");
-  //   authorContainer.append(alertDiv);
-  // }
-
-  // // Function for handling what happens when the delete button is pressed
-  // function handleDeleteButtonPress() {
-  //   var listItemData = $(this).parent("td").parent("tr").data("author");
-  //   var id = listItemData.id;
-  //   $.ajax({
-  //     method: "DELETE",
-  //     url: "/api/authors/" + id
-  //   })
-  //     .then(getAuthors);
-  // }
 });
