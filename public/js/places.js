@@ -1,43 +1,45 @@
+/* eslint-disable camelcase */
+/* eslint-disable prettier/prettier */
 $(document).ready(function () {
+    // Adding event listeners to the form to create a place object
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
 
-  // Adding event listeners to the form to create a place object
-  $("#submit").on("click", function(event){
-  event.preventDefault();
+        // This grabs values from user input
+        var newPlace = {
+            place_name: $("#inputNameMD")
+                .val()
+                .trim(),
+            // address_name: $("#inputAddressMD").val().trim(),
+            address_name: $("#inputZipMD").val().trim(),
+            wifi: $("#inputWifi:checked").val(),
+            waiters: $("#inputWaiters:checked").val(),
+            kidfriendly: $("#inputKidfriendly:checked").val(),
+            bigtables: $("#inputBigtables:checked").val(),
+            pet_friendly: $("#inputPetfriendly:checked").val(),
+            website: $("#inputWebsite")
+                .val()
+                .trim()
+        };
 
-    // This grabs values from user input
-    var newPlace = {
-    place_name: $("#inputNameMD").val().trim(),
-    // address_name: $("#inputAddressMD").val().trim(),
-    address_name: $("#inputZipMD").val().trim(),
-    wifi: $("#inputWifi:checked").val(),
-    waiters: $("#inputWaiters:checked").val(),
-    kidfriendly: $("#inputKidfriendly:checked").val(),
-    bigtables: $("#inputBigtables:checked").val(),
-    pet_friendly: $("#inputPetfriendly:checked").val(),
-    website: $("#inputWebsite").val().trim()
+        // This clears all of the text and check boxes
+        $("#inputNameMD").val("");
+        $("#inputAddressMD").val("");
+        $("#inputZipMD").val("");
+        $("#inputWifi:unchecked").val("");
+        $("#inputWaiters:unchecked").val("");
+        $("#inputKidfriendly:unchecked").val("");
+        $("#inputBigtables:unchecked").val("");
+        $("#inputPetfriendly:unchecked").val("");
+        $("#inputWebsite").val("");
+
+        makeNewPlace(newPlace);
+    });
+
+    // A function for creating a new study place.
+    function makeNewPlace(placeData) {
+        $.post("/api/places", placeData);
     }
-
-    // This clears all of the text and check boxes 
-    $("#inputNameMD").val("");
-    $("#inputAddressMD").val("");
-    $("#inputZipMD").val("");
-    $("#inputWifi:unchecked").val("");
-    $("#inputWaiters:unchecked").val("");
-    $("#inputKidfriendly:unchecked").val("");
-    $("#inputBigtables:unchecked").val("");
-    $("#inputPetfriendly:unchecked").val("");
-    $("#inputWebsite").val("");
-
-    makeNewPlace(newPlace)
-
-});
-
-
-  // A function for creating a new study place.
-  function makeNewPlace(placeData) {
-    $.post("/api/places", placeData)
-  }
-
 });
 
 // Don't do anything if the name fields hasn't been filled out
@@ -104,7 +106,7 @@ function displayResults(obj) {
         for (var j in obj[i].reviews) {
             avgRating += obj[i].reviews[j].rating;
         }
-        avgRating = avgRating/obj[i].reviews.length;
+        avgRating = avgRating / obj[i].reviews.length;
         if (avgRating === 0 || isNaN(avgRating)) {
             newP.text("No reviews yet!");
         }
@@ -113,7 +115,7 @@ function displayResults(obj) {
         }
         newP.appendTo(newBody);
 
-        var newButton = $("<a>").addClass("btn btn-primary");
+        var newButton = $("<a>").addClass("btn aqua-gradient");
         newButton.text("See More Info");
         newButton.attr("href", "/reviews.html?id=" + obj[i].id);
         newBody.append(newButton);
@@ -137,7 +139,7 @@ $("#search").on("click", function () {
         $("#mySelect").val(hood);
         $("html, body").animate({
             scrollTop: $("#study-spots").offset().top
-        }, 2000); 
+        }, 2000);
     }
     else {
         console.log("Make a selection!");
@@ -167,6 +169,8 @@ $("#search").on("click", function () {
 
     //ajax GET call that returns all neighborhoods with "hood" as a parameter
     $.get("/api/places/?neighborhood=" + hoodFind, function (res) {
+        var titleHeader = $("<h3>").text("Study Spots Near You:");
+        titleHeader.appendTo("#display-places");
         displayResults(res);
     });
 
