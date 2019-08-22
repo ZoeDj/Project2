@@ -60,6 +60,23 @@ module.exports = function (app) {
         });
     });
 
+    // CUSTOMIZED ROUTE - E.G. find all places with wifi=true, pet_friendly=true/false etc..
+    app.get("/api/places/search/filter", function (req, res) {
+        var predicate = {where:{}};
+        var wifiVal = req.query.wifi;
+        var petVal = req.query.pet_friendly;
+        var tablesVal = req.query.bigtables;
+        if(req.query && wifiVal){predicate.where.wifi=true}
+        if(req.query && petVal){predicate.where.pet_friendly = true}
+        if(req.query && tablesVal){predicate.where.bigtables = true}
+        db.places.findAll( 
+                predicate
+              )
+                .then(function(models) {
+                  res.json(models);
+                })
+    });
+
     app.get("/api/places", function (req, res) {
 
         var wifiVal = req.body.wifi;
