@@ -42,14 +42,40 @@ function findNeighborhood(zipString) {
 
 function displayResults(obj) {
     for (var i in obj) {
-        var newLine = $("<li>").addClass("list-group-item");
-        newLine.attr("data-id", obj[i].id);
-        var newLink = $("<a>").attr("href", obj[i].website);
-        newLink.text(obj[i].place_name);
-        newLink.appendTo(newLine);
-        var newButton = $("<button>").addClass("btn btn-danger float-right delete");
-        newLine.append(newButton);
-        $("#places-list").append(newLine);
+
+        var newCard = $("<div>").addClass("card");
+        newCard.attr("data-id", obj[i].id);
+
+        var newPic = $("<img>").attr("src", obj[i].image_url);
+        newPic.addClass("card-img-top");
+
+        var newBody = $("<div>").addClass("card-body");
+
+        var newTitle = $("<h4>").addClass("card-title");
+        newTitle.text(obj[i].place_name);
+        newTitle.appendTo(newBody);
+
+        var newP = $("<p>").addClass("card-text");
+        var avgRating = 0;
+        for (var j in obj[i].reviews) {
+            avgRating += obj[i].reviews[j].rating;
+        }
+        avgRating = avgRating/obj[i].reviews.length;
+        if (avgRating === 0 || isNaN(avgRating)) {
+            newP.text("No reviews yet!");
+        }
+        else {
+            newP.text("Average Rating: " + avgRating + "/5");
+        }
+        newP.appendTo(newBody);
+
+        var newButton = $("<a>").addClass("btn btn-primary");
+        newButton.text("See More Info");
+        newButton.attr("href", "/reviews.html?id=" + obj[i].id);
+        newBody.append(newButton);
+
+        newBody.appendTo(newCard);
+        $("#display-places").append(newCard);
     }
 }
 
@@ -58,13 +84,16 @@ $("#search").on("click", function () {
         var zip = $("#zipinput").val().trim();
         var hood = findNeighborhood(zip);
         $("#mySelect").val(hood);
-        console.log("They live in " + hood);
-        //href to the next section of the page
+        $("html, body").animate({
+            scrollTop: $("#study-spots").offset().top
+        }, 2000);
     }
     else if ($("#mySelect").val() !== "none") {
         var hood = $("#mySelect").val();
-        console.log("They live in " + hood);
-        //href to the next section of the page
+        $("#mySelect").val(hood);
+        $("html, body").animate({
+            scrollTop: $("#study-spots").offset().top
+        }, 2000); 
     }
     else {
         console.log("Make a selection!");
@@ -89,15 +118,12 @@ $("#search").on("click", function () {
         hoodFind = "center";
         break;
     default:
-        console.log("Yikes!");
+        console.log("No neighborhood selected!");
     }
 
     //ajax GET call that returns all neighborhoods with "hood" as a parameter
     $.get("/api/places/?neighborhood=" + hoodFind, function (res) {
-        console.log("/api/places/?neighborhood=" + hoodFind);
-        console.log(res);
         displayResults(res);
-        console.log("done");
     });
 
 });

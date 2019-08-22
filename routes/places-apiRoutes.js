@@ -23,6 +23,7 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             },
+            include: [db.reviews]
             // include: [db.Review]
         }).then(function (dbPlace) {
             res.json(dbPlace);
