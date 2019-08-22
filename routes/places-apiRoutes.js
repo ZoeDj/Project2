@@ -3,22 +3,30 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-    //  ROUTE TO SELECT ALL PLACES
+    //  ROUTE TO SELECT ALL PLACES 
     app.get("/api/places", function (req, res) {
-    // "get" findAll queries will include an array of all associated Reviews
-        console.log(req.query);
-        console.log(req.query.neighborhood);
-        db.places.findAll({
-            where: {neighborhood: req.query.neighborhood},
-            include: [db.reviews]
-        }).then(function (dbPlace) {
-            res.json(dbPlace);
-        });
+        // "get" findAll queries will include an array of all associated Reviews
+        if (req.query && req.query.neighborhood === undefined) {
+            db.places.findAll({
+                include: [db.reviews]
+            }).then(function (dbPlace) {
+                res.json(dbPlace);
+            });
+        } else {
+            console.log(req.query);
+            console.log(req.query.neighborhood);
+            db.places.findAll({
+                where: { neighborhood: req.query.neighborhood },
+                include: [db.reviews]
+            }).then(function (dbPlace) {
+                res.json(dbPlace);
+            });
+        }
     });
 
     //  ROUTE TO SELECT 1 PLACE BY ID
     app.get("/api/places/:id", function (req, res) {
-    // "get" findOne queries will include an array of all associated Reviews
+        // "get" findOne queries will include an array of all associated Reviews
         db.places.findOne({
             where: {
                 id: req.params.id
@@ -31,7 +39,7 @@ module.exports = function (app) {
 
     //  ROUTE TO SELECT ALL REVIEWS FOR A SINGLE PLACE
     app.get("/api/places/:id", function (req, res) {
-    // "get" findOne queries will include an array of all associated Reviews
+        // "get" findOne queries will include an array of all associated Reviews
         db.places.findOne({
             where: {
                 id: req.params.id
@@ -45,7 +53,7 @@ module.exports = function (app) {
 
     // ROUTE TO CREATE A NEW PLACE
     app.post("/api/places", function (req, res) {
-    //creates a new Place
+        //creates a new Place
         db.places.create(req.body).then(function (dbPlace) {
             res.json(dbPlace);
         });
