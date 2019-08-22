@@ -26,6 +26,6 @@ INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Conne
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Quindon Cottman', 'center', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Kelly Hernandez', 'east', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Hunter King', 'east', NOW(), NOW());
-INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Chester Bennington', 'nort', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Chester Bennington', 'north', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Elamin Siddig', 'east', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Kara Ford', 'north', NOW(), NOW());
