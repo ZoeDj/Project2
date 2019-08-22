@@ -21,3 +21,7 @@ INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Celes
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Jason B', 'north', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Sully Washington', 'center', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Caitlin Steadman', 'center', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Evie Bell', 'west', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Conner Flowe', 'north', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Quindon Cottman', 'center', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Kelly Hernandez', 'east', NOW(), NOW());

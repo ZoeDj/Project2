@@ -23,9 +23,10 @@ module.exports = function (app) {
   });
 
   // Delete Route to delete a review by id
-  app.delete("/api/reviews/:id", function (req, res) {
-    db.reviews.destroy({ where: { id: req.params.id } }).then(function (dbReviews) {
-      res.json(dbReviews);
-    });
-  });
+  // app.delete("/api/reviews/:id", function(req, res) {
+  //   db.reviews.destroy({ where: { id: req.params.id } }).then(function(dbReviews) {
+  //     res.json(dbReviews);
+  //   });
+  // });
+
 };

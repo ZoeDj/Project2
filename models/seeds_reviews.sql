@@ -24,3 +24,4 @@ INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Conner Flowe','Charlotte Meck. Library Plaza-Midwood', 'Good place to spend some quiet time. Easy to connect to wifi!', 3, NOW(), NOW(),6);
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Quindon Cottman','Julias Cafe & Books', 'I spend hours here, probably longer than I should. I just really love the atmosphere and how much space there is to browse', 4, NOW(), NOW(),9);
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('''Kelly Hernandez','Queen City Grounds', 'The people who work here are so kind. Wifi is super fast and there is lots of room to sit and study with friends', 4, NOW(), NOW(),9);
+
