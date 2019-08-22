@@ -17,7 +17,7 @@ $(document).ready(function () {
     website: $("#inputWebsite").val().trim()
     }
 
-    // This clears all of the text boxes
+    // This clears all of the text and check boxes 
     $("#inputNameMD").val("");
     $("#inputAddressMD").val("");
     $("#inputZipMD").val("");
