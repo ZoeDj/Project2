@@ -47,9 +47,7 @@ h6 {
   background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
   background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
 }
-#study {
-  font-family: 'Nanum Myeongjo', serif;
-}
+
 #zip {
   color: black;
   
@@ -57,15 +55,33 @@ h6 {
 
 #zipinput {
   width: 40%;
-  margin-left: 0%
+  margin-left: 1%
 }
+
+
 @media (max-width:992px){
   #nav-bar{background-color:transparent!important}
   #nav-bar:hover{background-color:#424f95 !important}
+  .mediaSpace{padding-top: 15%}
 }
 @media (max-width:767px){
   #zipinput {
-    width: 100%;
+    width: 48%;
+    margin-left: 24%;
   }
 }
+@media (max-width: 767px){
+  #search {
+    margin: center;
+  }
 
+}
+@media (max-width: 550px){
+  .mediaSpace{padding-top: 20%}
+
+}
+
+@media (max-width: 1199px){
+  .mediaSpace{padding-top: 15%}
+
+}

@@ -15,13 +15,17 @@
 -- );
 
 
-INSERT INTO users (user_name, user_location, createdAt, updatedAt) VALUES ('Ellen Delaney', 'south', NOW(), NOW());
-INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Omrie Johnson', 'east', NOW(), NOW());
-INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Celeste Duprie', 'west', NOW(), NOW());
+INSERT INTO users (user_name, user_location, createdAt, updatedAt) VALUES ('Ellen Delaney', 'southern', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Omrie Johnson', 'eastern', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Celeste Duprie', 'western', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Jason B', 'north', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Sully Washington', 'center', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Caitlin Steadman', 'center', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Evie Bell', 'west', NOW(), NOW());
-INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Conner Flowe', 'north', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Conner Flowe', 'northern', NOW(), NOW());
 INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Quindon Cottman', 'center', NOW(), NOW());
-INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Kelly Hernandez', 'east', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Kelly Hernandez', 'eastern', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Hunter King', 'eastern', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Chester Bennington', 'northern', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Elamin Siddig', 'eastern', NOW(), NOW());
+INSERT INTO users (user_name, user_location,createdAt, updatedAt) VALUES ('Kara Ford', 'northern', NOW(), NOW());
