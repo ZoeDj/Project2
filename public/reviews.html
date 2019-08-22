@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Study Mob Places</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" type="text/css" href="jquery.rateyo.min.css">  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -14,6 +16,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="scss/styles/styles.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -27,9 +30,7 @@
       <br>
       <br>
       <br>
-      <!-- <h2 class="card-title h2 my-4 py-2">Jumbotron with image overlay</h2>
-      <p class="mb-4 pb-2 px-md-5 mx-md-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur obcaecati vero aliquid libero doloribus ad, unde tempora maiores, ullam, modi qui quidem minima debitis perferendis vitae cumque et quo impedit.</p> -->
-      <a href="places.html" class="btn peach-gradient"><i class="fas fa-clone left"></i> View all places</a>
+      <a href="places.html" class="btn peach-gradient"><i class="fas fa-clone left"></i> Start Over</a>
 
     </div>
   </div>
@@ -40,59 +41,101 @@
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
+      <div class="modal-header text-center aqua-gradient">
         <h4 class="modal-title w-100 font-weight-bold">Review</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="form3" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="form3">Your name</label>
-        </div>
+          <form id="review-form">
 
-        <div class="md-form">
-          <i class="fas fa-pencil-alt prefix grey-text"></i>
-          <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
-          <label data-error="wrong" data-success="right" for="form8">Write Review</label>
-        </div>
+          <div class="md-form form-group">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input type="text" class="form-control" id="inputNameMD">
+            <label for="inputNameMD">Your Name</label>
+          </div>
 
-      </div>
+          <div class="md-form form-group">
+            <i class="fas fa-map-marker-alt prefix grey-text"></i>
+            <input type="text" class="form-control" id="inputPlaceNameMD">
+            <label for="inputPlaceNameMD">Study Place</label>
+          </div>
+              
+          <label for="inputRating" class="control-label grey-text">Rate This Place: </label>
+          <div id="rateYo" val="rating"></div> 
+          <input type="hidden" name="rating" id="inputRating"/>  
+
+          <div class="md-form form-group">
+            <i class="fas fa-pencil-alt prefix grey-text"></i>
+            <textarea type="text" class="md-textarea" id="inputReviewMD" rows="4"></textarea>
+            <label for="inputReviewMD">Write Review</label>
+          </div>
+
       <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-indigo">Submit</button>
+        <button class="btn btn-cyan" id="submit">Submit</button>
       </div>
+      </form>
+      </div> 
     </div>
   </div>
-</div>
+  </div>
+  </div>
 
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">write Review</a>
+  <div class="text-center">
+    <a href="" class="btn aqua-gradient btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">Write Review</a>
+  </div>
+<div class="col-md-12 clearfix">
+  <div id="place-info">
+
+  </div>
+  <a href="" id="new-review" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">Write Review</a>
 </div>
 <!-- Modal -->
 
-    <!-- Footer -->
-<footer class="page-footer font-small blue">
-    
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2019 Copyright:
-    <a href="https://github.com/erinruthmaness">Erin</a>, <a href="https://github.com/kattymay">Kat</a>, <a href="https://github.com/ZoeDj">Zoe</a> & <a href="https://github.com/Kalobar4">Brad</a></div>
-    </div>
-    <!-- Copyright -->
+  <!-- Footer -->
+  <footer class="page-footer font-small blue">
+  
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 purple-gradient">© 2019 Copyright:
+  <a href="https://github.com/erinruthmaness">Erin</a>, <a href="https://github.com/kattymay">Kat</a>, <a href="https://github.com/ZoeDj">Zoe</a> & <a href="https://github.com/Kalobar4">Brad</a></div>
+  </div>
+  <!-- Copyright -->
   
   </footer>
   <!-- Footer -->
 
   <!-- SCRIPTS -->
-  <!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
-</body>
+  <script type="text/javascript" src="jquery.min.js"></script> 
+  <script type="text/javascript" src="jquery.rateyo.min.js"></script> 
 
+  <!-- JQuery -->
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+  <!-- <script src="/js/reviews.js"></script> -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css"> 
+    
+  <!-- Latest compiled and minified JavaScript for rate-yo -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script> 
+  <script src="/js/reviews.js"></script>
+  <script> 
+    $("#rateYo").rateYo({ 
+        rating: 1.5, 
+        spacing: "10px", 
+        numStars: 5, 
+        minValue: 0, 
+        maxValue: 5, 
+        normalFill: 'grey', 
+        ratedFill: 'hotpink', 
+    }) 
+  </script> 
+
+</body>
 </html>

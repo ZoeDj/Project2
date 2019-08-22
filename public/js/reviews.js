@@ -1,142 +1,132 @@
 $(document).ready(function() {  
   
-  // displayReviews holds all of our reviews
-  var displayReviews = $(".display-reviews");
-  // var reviewCategorySelect = $("#category");
-
-  // Click events for the edit and delete buttons
-  $(document).on("click", "button.delete", handleReviewDelete);
-  $(document).on("click", "button.edit", handleReviewEdit);
-
-  // Variable to hold our reviews
-  var reviews;
-
-  // The code below handles the case where we want to get reviews for a specific place
-  // Looks for a query param in the url for place_id
-  var url = window.location.search;
-  var placeId;
-  if (url.indexOf("?place_id=") !== -1) {
-    placeId = url.split("=")[1];
-    getReview(placeId);
-  }
-  // If there's no placeId we just get all places as usual
-  else {
-    getReviews();
+  // Adding event listeners to the form to create a review object
+  $("#submit").on("click", function(event){
+    event.preventDefault();
+  
+  // This grabs values from user input
+  var newReview = {
+    user_name: $("#inputNameMD").val().trim(),
+    place_name: $("#inputPlaceNameMD").val().trim(),
+    content: $("#inputReviewMD").val().trim(),
+    rating: $("#rateYo").rateYo("rating")
   }
 
+  // This clears all of the text boxes
+  $("#inputNameMD").val("");
+  $("#inputPlaceNameMD").val("");
+  $("#inputReviewMD").val("");
 
-  // This function grabs reviews from the database and updates the view
-  function getReviews(place) {
-    placeId = place || "";
-    if (placeId) {
-      placeId = "/?place_id=" + placeId;
-    }
-    $.get("/api/revievs" + placeId, function(data) {
-      console.log("Review", data);
-      review = data;
-      if (!review || !review.length) {
-        displayEmpty(place);
-      }
-      else {
-        initializeRows();
-      }
+
+  makeNewReview(newReview)
+
+});
+
+// A function for creating a new study place.
+function makeNewReview(reviewData) {
+  $.post("/api/reviews", reviewData)
+}
+
+});
+/* eslint-disable prettier/prettier */
+$(document).ready(function () {
+    var placeID = window.location.href;
+    var splitString = placeID.split("=");
+    placeID = splitString[1];
+    var queryURL = "/api/places/" + placeID;
+
+    $.get(queryURL, function (res) {
+        console.log(res);
+        
+        var placePic = $("<img>").attr("src", res.image_url);
+        placePic.attr("style", "width: 20%; float: left; margin: 5%;");
+        placePic.appendTo("#place-info");
+
+        var placeBody = $("<div>").attr("style", "width: 70%; float: left; margin-top: 5%");
+
+        var placeTitle = $("<h2>");
+        placeTitle.appendTo(placeBody);
+
+        var placeRating = $("<h6>");
+        var avgRating = 0;
+
+        var reviewList = $("<div>");
+
+        for (var i in res.reviews) {
+            avgRating += res.reviews[i].rating;
+
+            var ratingLine = $("<h5>");
+
+            ratingLine.text("Rated " + res.reviews[i].rating + "/5 by " + res.reviews[i].user_name);
+            ratingLine.appendTo(reviewList);
+
+            var reviewLine = $("<p>").text(res.reviews[i].content);
+            reviewLine.appendTo(reviewList);
+        }
+
+        reviewList.appendTo(placeBody);
+
+        avgRating = avgRating / res.reviews.length;
+        if (avgRating === 0 || isNaN(avgRating)) {
+            placeRating.text("No reviews yet!");
+        }
+        else {
+            placeTitle.text(res.place_name + "  (" + avgRating + "/5)");
+        }
+        placeRating.appendTo(placeBody);
+
+        var checkList = $("<div>");
+        var checkListTable = $("<ul>");
+
+        if (res.bigtables === true) {
+            var listLine = $("<h6>").text("✔️ Big Tables");
+            listLine.appendTo(checkListTable);
+        }
+        else {
+            var listLine = $("<h6>").text("❌ Big Tables");
+            listLine.appendTo(checkListTable);
+        }
+
+        if (res.kidfriendly === true) {
+            var listLine = $("<h6>").text("✔️ Kid Friendly");
+            listLine.appendTo(checkListTable);
+        }
+        else {
+            var listLine = $("<h6>").text("❌ Kid Friendly");
+            listLine.appendTo(checkListTable);
+        }
+
+        if (res.petfriendly === true) {
+            var listLine = $("<h6>").text("✔️ Pet Friendly");
+            listLine.appendTo(checkListTable);
+        }
+        else {
+            var listLine = $("<h6>").text("❌ Pet Friendly");
+            listLine.appendTo(checkListTable);
+        }
+
+        if (res.waiters === true) {
+            var listLine = $("<h6>").text("✔️ Waiters");
+            listLine.appendTo(checkListTable);
+        }
+        else {
+            var listLine = $("<h6>").text("❌ Waiters");
+            listLine.appendTo(checkListTable);
+        }
+
+        if (res.wifi === true) {
+            var listLine = $("<h6>").text("✔️ Wifi");
+            listLine.appendTo(checkListTable);
+        }
+        else {
+            var listLine = $("<h6>").text("❌ Wifi");
+            listLine.appendTo(checkListTable);
+        }
+
+
+        checkListTable.appendTo(checkList);
+        checkList.appendTo(placeBody);
+        $("#place-info").append(placeBody);
     });
-  }
-
-  // This function does an API call to delete review
-  function deleteReview(id) {
-    $.ajax({
-      method: "DELETE",
-      url: "/api/reviews/" + id
-    })
-    .then(function() {
-    getReviews(reviewSelect.val());
-    });
-  }
-
-  // InitializeRows handles appending all of our constructed reviews HTML inside displayReviews
-  function initializeRows() {
-    displayReviews.empty();
-    var reviewToAdd = [];
-    for (var i = 0; i < reviews.length; i++) {
-      reviewsToAdd.push(createNewRow(review[i]));
-    }
-    displayReviews.append(reviewToAdd);
-  }
-
-  // This function constructs a reviews's HTML
-  function createNewRow(review) {
-    var formattedDate = new Date(review.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    var newReviewCard = $("<div>");
-    newReviewCard.addClass("card");
-    var newReviewCardHeading = $("<div>");
-    newReviewCardHeading.addClass("card-header");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-info");
-    var newReviewTitle = $("<h2>");
-    var newReviewDate = $("<small>");
-    var newReviewPlace = $("<h5>");
-    newReviewPlace.text("Written by: " + review.place.name);
-    newReviewPlace.css({
-      float: "right",
-      color: "blue",
-      "margin-top":
-      "-10px"
-    });
-    var newReviewCardBody = $("<div>");
-    newReviewCardBody.addClass("card-body");
-    var newReviewBody = $("<p>");
-    newReviewTitle.text(review.title + " ");
-    newReviewBody.text(review.body);
-    newReviewDate.text(formattedDate);
-    newReviewTitle.append(newReviewDate);
-    newReviewCardHeading.append(deleteBtn);
-    newReviewCardHeading.append(editBtn);
-    newReviewCardHeading.append(newReviewTitle);
-    newReviewCardHeading.append(newReviewAuthor);
-    newReviewCardBody.append(newReviewBody);
-    newReviewCard.append(newReviewCardHeading);
-    newReviewCard.append(newReviewCardBody);
-    newReviewCard.data("review", review);
-    return newReviewCard;
-  }
-
-  // This function figures out which review we want to delete and then calls deleteReview 
-  function handleReviewDelete() {
-    var currentReview = $(this)
-      .parent()
-      .parent()
-      .data("review");
-    deleteReview(currentReview.id);
-  }
-
-  // This function figures out which review we want to edit and takes it to the appropriate url
-  function handleReviewEdit() {
-    var currentReview = $(this)
-      .parent()
-      .parent()
-      .data("review");
-    window.location.href = "/cms?review_id=" + currentReview.id;
-  }
-
-  // This function displays a message when there are no reviews
-  function displayEmpty(id) {
-    var query = window.location.search;
-    var partial = "";
-    if (id) {
-      partial = " for place #" + id;
-    }
-    displayReviews.empty();
-    var messageH2 = $("<h2>");
-    messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No reviews yet" + partial + ", navigate <a href='/cms" + query +
-    "'>here</a> in order to get started.");
-    displayReviews.append(messageH2);
-  }
 
 });

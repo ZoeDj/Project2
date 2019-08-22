@@ -18,9 +18,15 @@ INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt
 
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Omrie Johnson','Coco and the Director', 'You will have a hard time believing you have not been whisked away to Paris!', 5, NOW(), NOW(),3);
 
+
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Jason B','Seeds Mugs Coffee', 'Delicious pastry and a fabulous latte', 4, NOW(), NOW(),7);
 
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Celeste Duprie','Huntersville Waterbean Coffee', ' Good for large groups.  There was a large party seated downstairs, and our party of 3 was seated upstairs.', 3, NOW(), NOW(),6);
+
+
+INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Sully Washington','Whole Foods South CLT', 'Pros: big community tables, coffee/pizza/store on the bottom floor, bathrooms on the same level, outdoor patio, closed room that you can reserve.', 4, NOW(), NOW(),9);
+INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Nick Held','The Olde Mecklenburg Brewery', 'A huge outdoor seating area is a perfect meeting spot on a nice fall or spring day. We come to study there for hours and enjoy some beer and quick bits afterwards.', 4, NOW(), NOW(),8);
+
 
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Sully Washington','Whole Foods South CLT', '“The wine/beer bar (on second floor) & wine/lounge area above is so nice.', 4, NOW(), NOW(),9);
 
@@ -30,7 +36,7 @@ INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt
 
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Conner Flowe','Charlotte Meck. Library Plaza-Midwood', 'Good place to spend some quiet time. Easy to connect to wifi!', 3, NOW(), NOW(),6);
 
-INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Quindon Cottman','Julias Cafe & Books', 'I spend hours here, probably longer than I should. I just really love the atmosphere and how much space there is to browse.' 4, NOW(), NOW(),9);
+
 
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Hunter King','Amelies', 'They are open 24 hours! Absolutely my favorite location.' 4, NOW(), NOW(),7);
 
@@ -39,3 +45,7 @@ INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Chester Bennington','Amelies', 'I spend a lot of time here studying and drinking way too many cups of coffee', 4, NOW(), NOW(),7);
 
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Elamin Siddig','Amelies', 'My girlfriend likes to go here for coffee dates. The service is good and usually pretty chill', 4, NOW(), NOW(),7);
+
+INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Quindon Cottman','Julias Cafe & Books', 'I spend hours here, probably longer than I should. I just really love the atmosphere and how much space there is to browse', 4, NOW(), NOW(),9);
+INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('''Kelly Hernandez','Queen City Grounds', 'The people who work here are so kind. Wifi is super fast and there is lots of room to sit and study with friends', 4, NOW(), NOW(),9);
+

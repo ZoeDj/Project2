@@ -2,6 +2,143 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Study Mob Places</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="styles/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Jumbotron -->
+<div class="card card-image" style="background-image: url('img/skyline.jpg'); background-position: top">
+  <div class="text-black text-center py-5 px-4">
+    <div class="py-5">
+
+      <!-- Content -->
+      <div><img src="img/studymob1.png"></div>
+      <br>
+      <br>
+      <br>
+      <!-- <h2 class="card-title h2 my-4 py-2">Jumbotron with image overlay</h2>
+      <p class="mb-4 pb-2 px-md-5 mx-md-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur obcaecati vero aliquid libero doloribus ad, unde tempora maiores, ullam, modi qui quidem minima debitis perferendis vitae cumque et quo impedit.</p> -->
+      <a href="places.html" class="btn aqua-gradient btn-rounded mb-4">View all places</a>
+
+    </div>
+  </div>
+</div>
+<!-- Jumbotron -->
+    
+
+<!-- Modal/ Suggest Place -->
+<div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center aqua-gradient">
+      <h4 class="modal-title w-100 font-weight-bold">Suggest Study Place</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body mx-3">
+
+    <!-- Material form -->
+    <form id="place-form">
+
+    <!-- Material input -->
+    <div class="md-form form-group">
+      <input type="text" class="form-control" id="inputNameMD">
+      <label for="inputNameMD">Name of the Place</label>
+    </div>
+
+    <div class="md-form form-group">
+      <input type="text" class="form-control" id="inputAddressMD" >
+      <label for="inputAddressMD">Address</label>
+    </div>
+
+    <div class="md-form form-group">
+      <input type="text" class="form-control" id="inputZipMD">
+      <label for="inputZipMD">Zip Code</label>
+    </div>
+
+    <div class="md-form form-group">
+      <input type="text" class="form-control" id="inputWebsite" >
+      <label for="inputWebsite">Website</label>
+    </div>
+
+    <!-- Material unchecked -->
+    <div class="form-check form-group grey-text">
+        <input type="checkbox" class="form-check-input" id="inputWifi" value="1">
+        <label class="form-check-label" for="inputWifi">wifi</label>
+      </div>
+
+      <div class="form-check form-group grey-text">
+        <input type="checkbox" class="form-check-input" id="inputWaiters" value="1">
+        <label class="form-check-label" for="inputWaiters">waiters</label>
+    </div>
+
+    <div class="form-check form-group grey-text">
+      <input type="checkbox" class="form-check-input" id="inputKidfriendly" value="1">
+      <label class="form-check-label" for="inputKidfriendly">kid friendly</label>
+    </div>
+
+    <div class="form-check form-group grey-text">
+      <input type="checkbox" class="form-check-input" id="inputBigtables" value="1">
+      <label class="form-check-label" for="inputBigtables">big tables</label>
+    </div>
+
+    <div class="form-check form-group grey-text">
+      <input type="checkbox" class="form-check-input" id="inputPetfriendly" value="1">
+      <label class="form-check-label" for="inputPetfriendly">pet friendly</label>
+    </div>
+        
+    </form>
+    <!-- Material form row -->
+    <div class="modal-footer d-flex justify-content-center">
+      <input type="submit" id="submit" class="btn btn-cyan"></input>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+
+<div class="text-center">
+<a href="" class="btn aqua-gradient btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">Suggest Study Place</a>
+</div>
+<!-- Modal/ Suggest Place -->
+
+    <!-- Footer -->
+<footer class="page-footer font-small ">
+    
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 purple-gradient">© 2019 Copyright:
+    <a href="https://github.com/erinruthmaness">Erin</a>, <a href="https://github.com/kattymay">Kat</a>, <a href="https://github.com/ZoeDj">Zoe</a> & <a href="https://github.com/Kalobar4">Brad</a></div>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+<script src="/js/places.js"></script>
+=======
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -106,11 +243,10 @@
             <!--Grid row-->
             <div class="row py-5">
                 <!--Grid column-->
-                <div class="col-md-12 text-center">
-                    <div id="display-places"></div>
+                <div class="col-md-12 text-center" id="study-spots">
                     <h3>Study Spots Near You:</h3>
-                    <ul id="places-list" class="list-group">
-                    </ul>
+                    <div id="display-places"></div>
+                    
                 </div>
                 <!--Grid column-->
             </div>
@@ -130,6 +266,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
     <script src="js/places.js"></script>
 
+>>>>>>> b3afe64b0a8431467fe08956632baad0ee7d9212
 </body>
 
 </html>
