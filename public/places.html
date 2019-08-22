@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -137,6 +138,140 @@ aria-hidden="true">
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
 <script src="/js/places.js"></script>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <title>Study Mob</title>
+</head>
+
+
+<body>
+    <!-- Main navigation -->
+    <header>
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+            <div class="container">
+                <div><img src="images/studymob-small.png">
+                    <a class="navbar-brand" href="#"></a></div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Places
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="reviews.html">Events</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline">
+                        <div class="md-form my-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Full Page Intro -->
+        <div class="view"
+            style="background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            <!-- Mask & flexbox options-->
+            <div class="mask rgba-gradient align-items-center">
+                <!-- Content -->
+                <div class="container">
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-md-6 white-text text-center text-md-left mt-xl-5 mb-5 wow fadeInLeft"
+                            data-wow-delay="0.3s">
+                            <h1 id="study" class="h1-responsive mt-sm-5">Study & Chill</h1>
+                            <hr class="hr-light">
+                            <h6 class="mb-4">Find the best spots to study near you!</h6>
+
+
+                            <!-- Basic dropdown -->
+                            <select class="btn btn-green accent-4 dropdown-toggle mr-4" type="button" id="mySelect"
+                                aria-haspopup="true" aria-expanded="false" aria-placeholder="Select Location">
+                                <option value="none">
+                                    Select Location
+                                </option>
+                                <option>Northern Charlotte</option>
+                                <option>Eastern Charlotte</option>
+                                <option>Southern Charlotte</option>
+                                <option>Western Charlotte</option>
+                                <option>Central Charlotte</option>
+                            </select>
+                            <!-- Basic dropdown -->
+
+                            <input class="form-control" id="zipinput" type="text" placeholder="Or Enter Your Zip Code"
+                                aria-label="Search">
+                            <button id="search" class="btn btn-outline-white">Search</button>
+
+                        </div>
+
+                        <!--Grid column-->
+                        <div class="col-md-6 col-xl-5 mt-xl-5 wow fadeInRight" data-wow-delay="0.3s">
+                            <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" alt=""
+                                class="img-fluid">
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </div>
+                <!-- Content -->
+            </div>
+            <!-- Mask & flexbox options-->
+        </div>
+        <!-- Full Page Intro -->
+    </header>
+    <!-- Main navigation -->
+    <!--Main Layout-->
+    <main>
+        <div class="container">
+            <!--Grid row-->
+            <div class="row py-5">
+                <!--Grid column-->
+                <div class="col-md-12 text-center" id="study-spots">
+                    <h3>Study Spots Near You:</h3>
+                    <div id="display-places"></div>
+                    
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+    </main>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+    <script src="js/places.js"></script>
+
+>>>>>>> b3afe64b0a8431467fe08956632baad0ee7d9212
 </body>
 
 </html>
