@@ -53,4 +53,10 @@ INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt
 
 INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Quindon Cottman','Julias Cafe & Books', 'I spend hours here, probably longer than I should. I just really love the atmosphere and how much space there is to browse', 4, NOW(), NOW(),9);
 
-INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Kelly Hernandez','Queen City Grounds', 'The people who work here are so kind. Wifi is super fast and there is lots of room to sit and study with friends', 4, NOW(), NOW(),9);
+INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Kelly Hernandez','Queen City Grounds', 'Charlotte has so many lovely coffee shops but QCG is definitely my favorite. The vegan pastries are always a nice treat.', 4, NOW(), NOW(),9);
+
+INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Hunter King','Queen City Grounds', 'Such a beautiful place to spend a few hours with my girlfriends. I love the upper level and all the decor.', 4, NOW(), NOW(),9);
+
+INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Kara Ford','Queen City Grounds', 'The smell of brewing coffee is my favorite! I love spending my mornings here.', 4, NOW(), NOW(),9);
+
+INSERT INTO reviews (user_name, place_name, content, rating,createdAt, updatedAt, placeId) VALUES ('Quindon Cottman','Queen City Grounds', 'I come here after my morning runs. Pretty chill atmosphere and the service is always spot on.', 4, NOW(), NOW(),9);
